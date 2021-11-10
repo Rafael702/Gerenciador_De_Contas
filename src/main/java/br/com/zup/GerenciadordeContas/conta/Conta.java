@@ -3,18 +3,42 @@ package br.com.zup.GerenciadordeContas.conta;
 import br.com.zup.GerenciadordeContas.conta.enuns.Status;
 import br.com.zup.GerenciadordeContas.conta.enuns.Tipo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "contas")
 public class Conta {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(nullable = false)
     private String nome;
     private double valor;
     private LocalDate dataDeVencimento;
     private LocalDateTime dataDePagamento;
+    @Enumerated(EnumType.STRING)
     private Tipo tipo;
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     public Conta() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
