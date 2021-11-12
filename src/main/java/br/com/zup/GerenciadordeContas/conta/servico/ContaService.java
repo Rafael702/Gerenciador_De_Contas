@@ -2,6 +2,7 @@ package br.com.zup.GerenciadordeContas.conta.servico;
 
 import br.com.zup.GerenciadordeContas.conta.Conta;
 import br.com.zup.GerenciadordeContas.conta.enuns.Status;
+import br.com.zup.GerenciadordeContas.conta.exception.ContaNaoEncontrada;
 import br.com.zup.GerenciadordeContas.conta.repository.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,7 +49,7 @@ public class ContaService {
         Optional<Conta> contaId = contaRepository.findById(id);
 
         if (contaId.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Não Encontramos esta Conta");
+            throw new ContaNaoEncontrada("Não Encontramos esta Conta");
         }
         return contaId.get();
     }
