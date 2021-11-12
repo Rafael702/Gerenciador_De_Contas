@@ -43,7 +43,7 @@ corpo:
 O enum de Status deve conter as opções; AGUARDANDO, PAGO e VENCIDA;
 O enum de Tipo deve conter as opções; LUZ, AGUA, COMIDA, LASER e OUTROS
 
-Entrega Mínima:
+Entrega Mínima: ✔CHECK
 
 O sistema deve permitir que uma conta seja cadastrada no sistema.✔CHECK
 
@@ -84,12 +84,17 @@ DEVE SER PREENCHIDA PELO SISTEMA ✔CHECK
 
 Entrega MÉDIA
 
-O sistema realiza todas as validações de campos obrigatórios para cadastrar uma conta. São eles; NOME, VALOR e TIPO
-O sistema responderá de forma coerente todos os erros de validação como por exemplo 422 para erros causados por validação ou 404 quando cliente tentar atualizar uma conta que não existe. 
+O sistema realiza todas as validações de campos obrigatórios 
+para cadastrar uma conta. 
+São eles; NOME, VALOR e TIPO ✔CHECK
+O sistema responderá de forma coerente todos os erros de validação como 
+por exemplo 422 para erros causados por validação ou 404 quando 
+o cliente tentar atualizar uma conta que não existe. ✔CHECK 
 
-Para isso será necessário o controller advice.   
+Para isso será necessário o controller advice. ✔CHECK
 
-O sistema também permitirá visualizar uma conta específica com todos os detalhes. 
+O sistema também permitirá visualizar uma conta específica 
+com todos os detalhes. 
 
 IMPORTANTE: Entrega média válida APENAS se a mínima estiver perfeita.
 Entrega Maxima.
