@@ -31,7 +31,10 @@ public class ContaService {
         return conta.getStatus();
     }
 
-    public List<Conta> exibirTodasAsContas() {
+    public List<Conta> exibirTodasAsContas(Status status) {
+        if(status != null){
+            return contaRepository.findAllByStatus(status);
+        }
         List<Conta> contas = (List<Conta>) contaRepository.findAll();
         return contas;
     }
