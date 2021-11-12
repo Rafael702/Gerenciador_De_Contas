@@ -5,6 +5,7 @@ import br.com.zup.GerenciadordeContas.conta.dtos.CadastroContaDTO;
 import br.com.zup.GerenciadordeContas.conta.dtos.ContaAtualizadaDTO;
 import br.com.zup.GerenciadordeContas.conta.dtos.ContaSaidaDTO;
 import br.com.zup.GerenciadordeContas.conta.enuns.Status;
+import br.com.zup.GerenciadordeContas.conta.enuns.Tipo;
 import br.com.zup.GerenciadordeContas.conta.servico.ContaService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +35,11 @@ public class ContaController {
     }
 
     @GetMapping
-    public List<ContaSaidaDTO> exibirContasCadastradas(@RequestParam(required = false) Status status) {
+    public List<ContaSaidaDTO> exibirContasCadastradas(@RequestParam(required = false) Status status,
+                                                       @RequestParam(required = false) Tipo tipo) {
         List<ContaSaidaDTO> listaDeContas = new ArrayList<>();
 
-        for (Conta referencia : contaService.exibirTodasAsContas(status)) {
+        for (Conta referencia : contaService.exibirTodasAsContas(status, tipo)) {
             ContaSaidaDTO exibirConta = modelMapper.map(referencia, ContaSaidaDTO.class);
             listaDeContas.add(exibirConta);
         }
