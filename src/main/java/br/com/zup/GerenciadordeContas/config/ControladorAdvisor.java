@@ -1,5 +1,6 @@
 package br.com.zup.GerenciadordeContas.config;
 
+import br.com.zup.GerenciadordeContas.conta.exception.ContaNaoEncontrada;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -23,6 +24,12 @@ public class ControladorAdvisor {
         }
 
         return mensagens;
+    }
+
+    @ExceptionHandler(ContaNaoEncontrada.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public MensagemDeErro manipularExcecaoDeContasNaoEncontradas(ContaNaoEncontrada exception) {
+        return new MensagemDeErro(exception.getMessage(), "sem campo");
     }
 
 }
