@@ -101,7 +101,7 @@ Entrega Maxima.
 
 O sistema deve permitir que sejam feitos alguns filtros na lista de contas. 
 
-1 - filtro de contas por status
+1 - filtro de contas por status ✔CHECK
 2 - filtro de contas por tipo 
 3 - filtro de contas com valor APROXIMADO (use o @QUERY é bem mais fácil para fazer isso) 
 
