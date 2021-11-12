@@ -23,9 +23,12 @@ public class Conta {
     private int id;
     @Column(nullable = false)
     private String nome;
+    @Column(nullable = false)
     private double valor;
+    @Column(nullable = false)
     private LocalDate dataDeVencimento;
     private LocalDateTime dataDePagamento;
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Tipo tipo;
     @Enumerated(EnumType.STRING)
