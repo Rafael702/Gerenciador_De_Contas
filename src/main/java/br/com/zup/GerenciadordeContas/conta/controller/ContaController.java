@@ -4,7 +4,6 @@ import br.com.zup.GerenciadordeContas.conta.Conta;
 import br.com.zup.GerenciadordeContas.conta.dtos.CadastroContaDTO;
 import br.com.zup.GerenciadordeContas.conta.dtos.ContaAtualizadaDTO;
 import br.com.zup.GerenciadordeContas.conta.dtos.ContaSaidaDTO;
-import br.com.zup.GerenciadordeContas.conta.dtos.ResumoContaDTO;
 import br.com.zup.GerenciadordeContas.conta.enuns.Status;
 import br.com.zup.GerenciadordeContas.conta.servico.ContaService;
 import org.modelmapper.ModelMapper;
@@ -35,20 +34,19 @@ public class ContaController {
     }
 
     @GetMapping
-    public List<ResumoContaDTO> exibirContasCadastradas() {
-        List<ResumoContaDTO> listaDeContas = new ArrayList<>();
+    public List<ContaSaidaDTO> exibirContasCadastradas() {
+        List<ContaSaidaDTO> listaDeContas = new ArrayList<>();
 
         for (Conta referencia : contaService.exibirTodasAsContas()) {
-            ResumoContaDTO resumoContaDTO = modelMapper.map(referencia, ResumoContaDTO.class);
-            listaDeContas.add(resumoContaDTO);
+            ContaSaidaDTO exibirConta = modelMapper.map(referencia, ContaSaidaDTO.class);
+            listaDeContas.add(exibirConta);
         }
         return listaDeContas;
     }
 
     @PutMapping("/{id}")
     public ContaSaidaDTO atualizarConta(@PathVariable int id, @RequestBody ContaAtualizadaDTO atualizarContaDTO) {
-        Conta conta = contaService.atualizarConta(id);
-        conta.setStatus(atualizarContaDTO.getStatus());
+        Conta conta = contaService.atualizarConta(id, atualizarContaDTO.getStatus());
 
         if (conta.getStatus().equals(Status.PAGO)) {
             return modelMapper.map(conta, ContaSaidaDTO.class);
