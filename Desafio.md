@@ -82,7 +82,7 @@ Status 200
 IMPORTANTE: SEMPRE QUE UMA CONTA FOR PAGA O CAMPO dateDePagamento 
 DEVE SER PREENCHIDA PELO SISTEMA ✔CHECK
 
-Entrega MÉDIA
+Entrega MÉDIA✔CHECK
 
 O sistema realiza todas as validações de campos obrigatórios 
 para cadastrar uma conta. 
@@ -94,7 +94,7 @@ o cliente tentar atualizar uma conta que não existe. ✔CHECK
 Para isso será necessário o controller advice. ✔CHECK
 
 O sistema também permitirá visualizar uma conta específica 
-com todos os detalhes. 
+com todos os detalhes.✔CHECK 
 
 IMPORTANTE: Entrega média válida APENAS se a mínima estiver perfeita.
 Entrega Maxima.
