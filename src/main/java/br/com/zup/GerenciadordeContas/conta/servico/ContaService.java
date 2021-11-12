@@ -5,9 +5,7 @@ import br.com.zup.GerenciadordeContas.conta.enuns.Status;
 import br.com.zup.GerenciadordeContas.conta.exception.ContaNaoEncontrada;
 import br.com.zup.GerenciadordeContas.conta.repository.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
