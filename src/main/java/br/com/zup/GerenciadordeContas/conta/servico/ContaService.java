@@ -4,10 +4,14 @@ import br.com.zup.GerenciadordeContas.conta.Conta;
 import br.com.zup.GerenciadordeContas.conta.enuns.Status;
 import br.com.zup.GerenciadordeContas.conta.repository.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ContaService {
@@ -33,4 +37,19 @@ public class ContaService {
         return contas;
     }
 
+    public Conta atualizarConta(int id) {
+        Conta conta = buscarConta(id);
+        conta.setDataDePagamento(LocalDateTime.now());
+        contaRepository.save(conta);
+        return conta;
+    }
+
+    public Conta buscarConta(int id) {
+        Optional<Conta> contaId = contaRepository.findById(id);
+
+        if (contaId.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Não Encontramos esta Conta");
+        }
+        return contaId.get();
+    }
 }
