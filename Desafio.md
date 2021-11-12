@@ -57,7 +57,8 @@ O Sistema também deve permitir visualizar a lista com todas as contas.✔CHECK
 Essa lista deve conter apenas os campos ID, Nome, Valor, Status.✔CHECK 
 
 Por fim, o sistema deve permitir fazer uma requisição para informar que a 
-conta foi paga. 
+conta foi paga. ✔CHECK
+
 Essa requisição deve seguir o seguinte padrão. 
 
 Endpoint: /contas/{id}
@@ -78,7 +79,8 @@ Status 200
       "status": "PAGO"
 }
 
-IMPORTANTE: SEMPRE QUE UMA CONTA FOR PAGA O CAMPO dateDePagamento DEVE SER PREENCHIDA PELO SISTEMA
+IMPORTANTE: SEMPRE QUE UMA CONTA FOR PAGA O CAMPO dateDePagamento 
+DEVE SER PREENCHIDA PELO SISTEMA ✔CHECK
 
 Entrega MÉDIA
 
