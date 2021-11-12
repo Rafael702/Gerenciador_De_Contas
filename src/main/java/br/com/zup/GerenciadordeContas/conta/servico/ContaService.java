@@ -1,9 +1,12 @@
 package br.com.zup.GerenciadordeContas.conta.servico;
 
 import br.com.zup.GerenciadordeContas.conta.Conta;
+import br.com.zup.GerenciadordeContas.conta.enuns.Status;
 import br.com.zup.GerenciadordeContas.conta.repository.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 
 @Service
 public class ContaService {
@@ -11,7 +14,16 @@ public class ContaService {
     private ContaRepository contaRepository;
 
     public void salvarConta(Conta conta) {
+        validarConta(conta);
         contaRepository.save(conta);
     }
 
+    public Status validarConta(Conta conta) {
+        conta.setStatus(Status.AGUARDANDO);
+        LocalDate diaDoCadastroDaConta = LocalDate.now();
+        if (conta.getDataDeVencimento().isBefore(diaDoCadastroDaConta)) {
+            conta.setStatus(Status.VENCIDA);
+        }
+        return conta.getStatus();
+    }
 }
