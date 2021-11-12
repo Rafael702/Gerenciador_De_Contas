@@ -47,10 +47,17 @@ Entrega Mínima:
 
 O sistema deve permitir que uma conta seja cadastrada no sistema.✔CHECK
 
-Sempre que uma conta com a data de vencimento for anterior ao dia do cadastro será preenchido AUTOMATICAMENTE pelo sistema o STATUS VENCIDA, em todos os outros casos o STATUS padrão para as contas novas cadastradas é de AGUARDANDO. 
+Sempre que uma conta com a data de vencimento for anterior ao dia do cadastro 
+será preenchido AUTOMATICAMENTE pelo sistema o STATUS VENCIDA, em todos os 
+outros casos o STATUS padrão para as contas novas cadastradas é 
+de AGUARDANDO.✔CHECK 
 
-O Sistema também deve permitir visualizar a lista com todas as contas. Essa lista deve conter apenas os campos ID, Nome, Valor, Status. 
-Por fim, o sistema deve permitir fazer uma requisição para informar que a conta foi paga. Essa requisição deve seguir o seguinte padrão. 
+O Sistema também deve permitir visualizar a lista com todas as contas. 
+Essa lista deve conter apenas os campos ID, Nome, Valor, Status. 
+
+Por fim, o sistema deve permitir fazer uma requisição para informar que a 
+conta foi paga. 
+Essa requisição deve seguir o seguinte padrão. 
 
 Endpoint: /contas/{id}
 Verbo HTTP: PUT
