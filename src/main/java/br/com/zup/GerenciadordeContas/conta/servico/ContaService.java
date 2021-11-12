@@ -2,6 +2,7 @@ package br.com.zup.GerenciadordeContas.conta.servico;
 
 import br.com.zup.GerenciadordeContas.conta.Conta;
 import br.com.zup.GerenciadordeContas.conta.enuns.Status;
+import br.com.zup.GerenciadordeContas.conta.enuns.Tipo;
 import br.com.zup.GerenciadordeContas.conta.exception.ContaNaoEncontrada;
 import br.com.zup.GerenciadordeContas.conta.repository.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,11 @@ public class ContaService {
         return conta.getStatus();
     }
 
-    public List<Conta> exibirTodasAsContas(Status status) {
-        if(status != null){
+    public List<Conta> exibirTodasAsContas(Status status, Tipo tipo) {
+        if (status != null) {
             return contaRepository.findAllByStatus(status);
+        } else if (tipo != null) {
+            return contaRepository.findAllByTipo(tipo);
         }
         List<Conta> contas = (List<Conta>) contaRepository.findAll();
         return contas;
