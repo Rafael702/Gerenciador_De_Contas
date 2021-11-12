@@ -13,9 +13,9 @@ public class ContaService {
     @Autowired
     private ContaRepository contaRepository;
 
-    public void salvarConta(Conta conta) {
+    public Conta salvarConta(Conta conta) {
         validarConta(conta);
-        contaRepository.save(conta);
+        return contaRepository.save(conta);
     }
 
     public Status validarConta(Conta conta) {
@@ -26,4 +26,5 @@ public class ContaService {
         }
         return conta.getStatus();
     }
+
 }
