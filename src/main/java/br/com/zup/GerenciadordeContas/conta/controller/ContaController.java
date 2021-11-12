@@ -1,8 +1,8 @@
 package br.com.zup.GerenciadordeContas.conta.controller;
 
 import br.com.zup.GerenciadordeContas.conta.Conta;
-import br.com.zup.GerenciadordeContas.conta.dtos.ContaAtualizadaDTO;
 import br.com.zup.GerenciadordeContas.conta.dtos.CadastroContaDTO;
+import br.com.zup.GerenciadordeContas.conta.dtos.ContaAtualizadaDTO;
 import br.com.zup.GerenciadordeContas.conta.dtos.ContaSaidaDTO;
 import br.com.zup.GerenciadordeContas.conta.dtos.ResumoContaDTO;
 import br.com.zup.GerenciadordeContas.conta.enuns.Status;
@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class ContaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ContaSaidaDTO cadastrarConta(@RequestBody CadastroContaDTO contaDTO) {
+    public ContaSaidaDTO cadastrarConta(@RequestBody @Valid CadastroContaDTO contaDTO) {
         Conta conta = modelMapper.map(contaDTO, Conta.class);
         contaService.salvarConta(conta);
         return modelMapper.map(conta, ContaSaidaDTO.class);
