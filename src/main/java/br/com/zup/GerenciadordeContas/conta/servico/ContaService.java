@@ -38,9 +38,10 @@ public class ContaService {
         return contas;
     }
 
-    public Conta atualizarConta(int id) {
+    public Conta atualizarConta(int id, Status status) {
         Conta conta = buscarConta(id);
         conta.setDataDePagamento(LocalDateTime.now());
+        conta.setStatus(status);
         contaRepository.save(conta);
         return conta;
     }
