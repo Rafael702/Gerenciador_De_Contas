@@ -34,10 +34,10 @@ public class ContaController {
     }
 
     @GetMapping
-    public List<ContaSaidaDTO> exibirContasCadastradas() {
+    public List<ContaSaidaDTO> exibirContasCadastradas(@RequestParam(required = false) Status status) {
         List<ContaSaidaDTO> listaDeContas = new ArrayList<>();
 
-        for (Conta referencia : contaService.exibirTodasAsContas()) {
+        for (Conta referencia : contaService.exibirTodasAsContas(status)) {
             ContaSaidaDTO exibirConta = modelMapper.map(referencia, ContaSaidaDTO.class);
             listaDeContas.add(exibirConta);
         }
