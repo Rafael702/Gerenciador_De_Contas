@@ -55,4 +55,11 @@ public class ContaController {
         }
         throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Esta opção é para pagar contas apenas");
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarConta(@PathVariable int id) {
+        contaService.deletarConta(id);
+
+    }
 }
