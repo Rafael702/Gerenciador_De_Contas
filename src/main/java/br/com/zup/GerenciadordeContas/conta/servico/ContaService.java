@@ -60,9 +60,9 @@ public class ContaService {
     }
 
     public void deletarConta(int id) {
-        if (contaRepository.existsById(id)) {
-            contaRepository.deleteById(id);
+        if (!contaRepository.existsById(id)) {
+            throw new ContaNaoEncontrada("Não Encontramos esta Conta");
         }
-        throw new ContaNaoEncontrada("Não Encontramos esta Conta");
+        contaRepository.deleteById(id);
     }
 }
